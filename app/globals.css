@@ -1,26 +1,111 @@
-@import "tailwindcss";
+/* 원본 design-reference/냉장고RPG/*.dc.html 의 <style> 블록을 그대로 옮긴 것.
+   PC 전용 사이트라 반응형 분기는 두지 않는다. */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  margin: 0;
+  background: #7cc159;
+  /* PC 전용: 콘텐츠 1140px + 좌우 여백 */
+  min-width: 1200px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+a {
+  color: #3b2418;
+}
+a:hover {
+  color: #8d5330;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+input::placeholder {
+  color: #a8876a;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #f7b733;
+  outline-offset: 2px;
+}
+
+button {
+  font-family: inherit;
+}
+
+@keyframes pxblink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.blink-14 {
+  animation: pxblink 1.4s steps(2) infinite;
+}
+.blink-12 {
+  animation: pxblink 1.2s steps(2) infinite;
+}
+.blink-10 {
+  animation: pxblink 1s steps(2) infinite;
+}
+.blink-035 {
+  animation: pxblink 0.35s steps(2) infinite;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* ── 원본 style-hover / style-active 를 클래스로 옮긴 것 ────────────────
+   선택 상태처럼 값이 바뀌는 색은 인라인 style 로 두고, 고정 효과만 여기에 둔다. */
+
+.press:active {
+  transform: translate(2px, 2px);
+}
+.press-sm:active {
+  transform: translate(1px, 1px);
+}
+
+.btn-yellow:hover {
+  background: #ffc444 !important;
+}
+.btn-yellow:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 4px 4px 0 #c47d12;
+}
+
+.btn-cream:hover {
+  background: #ffe8bf !important;
+}
+.btn-cream:active {
+  transform: translate(2px, 2px);
+}
+
+.btn-green:hover {
+  background: #7fcf58 !important;
+}
+.btn-green:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 4px 4px 0 #3f8a2a;
+}
+
+.brighten-06:hover {
+  filter: brightness(1.06);
+}
+.brighten-08:hover {
+  filter: brightness(1.08);
+}
+.brighten-10:hover {
+  filter: brightness(1.1);
+}
+.brighten-12:hover {
+  filter: brightness(1.12);
+}
+
+.window-obj:hover {
+  border-color: #f7b733 !important;
+}
+
+.quest-card:hover {
+  background: #fbeccc !important;
 }

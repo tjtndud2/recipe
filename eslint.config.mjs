@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Claude Design 원본 파일. 참고용으로만 두는 것이라 린트 대상이 아니다.
+    "design-reference/**",
   ]),
 ]);
 
